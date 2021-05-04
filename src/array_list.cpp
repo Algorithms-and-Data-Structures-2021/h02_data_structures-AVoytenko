@@ -83,10 +83,10 @@ namespace itis {
         // напишите свой код здесь ...
 
         Element removed = data_[size_];
-        std::copy(data_ + index + 1, data_ + size_, data_ + index);
+        std::copy(data_ + index + 1, data_ + size_ + 1, data_ + index);
         data_[size_] = Element::UNINITIALIZED;
         size_--;
-        return removed ;
+        return removed;
     }
 
     void ArrayList::Clear() {

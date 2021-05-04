@@ -35,23 +35,21 @@ namespace itis {
         // напишите свой код здесь ...
         internal::check_out_of_range(index, 0, size_ + 1);
         Node *node = new Node(e, nullptr);
-        if (size_ == 0) {
-            head_ = node;
-            tail_ = node;
-        } else if (index == size_) {
-            tail_->next = node;
-            tail_ = node;
-        } else if (index == 0) {
+
+        if (size_ == 0 || index == size_) {
+            Add(e);
+            return;
+        }
+        if (index == 0) {
             node->next = head_;
             head_ = node;
-        } else {
-            Node *prev_node = find_node(index - 1);
-            Node *next_node = find_node(index);
-            prev_node->next = node;
-            node->next = next_node;
+        }
+        else {
+            auto insert_node = LinkedList::find_node(index - 1);
+            node->next = insert_node->next;
+            insert_node->next = node;
         }
         size_++;
-
     }
 
     void LinkedList::Set(int index, Element e) {
