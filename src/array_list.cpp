@@ -85,7 +85,7 @@ namespace itis {
         Element removed = data_[size_];
         std::copy(data_ + index + 1, data_ + size_ + 1, data_ + index);
         data_[size_] = Element::UNINITIALIZED;
-        size_--;
+        size_-= 1;
         return removed;
     }
 
