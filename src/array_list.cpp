@@ -82,7 +82,7 @@ namespace itis {
         // Tip 2: не забудьте задать значение Element::UNINITIALIZED освободившейся ячейке
         // напишите свой код здесь ...
 
-        Element removed = data_[size_];
+        Element removed = data_[index];
         std::copy(data_ + index + 1, data_ + size_ + 1, data_ + index);
         data_[size_] = Element::UNINITIALIZED;
         size_-= 1;
