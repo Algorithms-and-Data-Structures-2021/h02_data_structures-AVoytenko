@@ -46,7 +46,7 @@ namespace itis {
             head_ = node;
         } else {
             Node *prev_node = find_node(index - 1);
-            Node *next_node = find_node(index - 1);
+            Node *next_node = find_node(index);
             prev_node->next = node;
             node->next = next_node;
         }
